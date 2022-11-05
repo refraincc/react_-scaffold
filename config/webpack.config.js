@@ -103,6 +103,12 @@ module.exports = {
                         !isProduction && require.resolve('react-refresh/babel')
                     ].filter(Boolean),
                 }
+            },
+            {
+                // 处理ts
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
             }
 
         ]
@@ -113,7 +119,7 @@ module.exports = {
             context: path.resolve(__dirname, '../src'),
             exclude: "node_modules",
             cache: true,
-            cacheLocation: path.resolve(__dirname, '../mode_modules/.cache/.eslintcache'),
+            cacheLocation: path.resolve(__dirname, '../node_modules/.cache/.eslintcache'),
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, "../public/index.html"),
@@ -202,11 +208,11 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: [".jsx", ".js", ".json"],
+        extensions: [".tsx", ".ts",".jsx", ".js", ".json"],
     },
     devServer: {
         host: 'localhost',
-        port: 3012,
+        port: 3000,
         open: true,
         hot: true,
         historyApiFallback: true,

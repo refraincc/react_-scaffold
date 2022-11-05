@@ -1,10 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import './index.less'
 
 const Index = () => {
     return (
         <h1 className='title'>
-            About
+            Home111111
         </h1>
     );
 }
